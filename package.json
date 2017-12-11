@@ -114,7 +114,7 @@
     "prepare": "npm run build",
     "codecov": "cat coverage/*/lcov.info | ./node_modules/codecov.io/bin/codecov.io.js",
     "prebuild": "rimraf es lib dist",
-    "build": "run-s build:** && run-s css:**",
+    "build": "yarn build:es && yarn build:umd:prod  && yarn css:prod && yarn css:modules:prod",
     "css:prod": "node-sass --output-style compressed src/stylesheets/datepicker.scss > dist/react-datepicker.min.css",
     "css:modules:prod": "node-sass --output-style compressed src/stylesheets/datepicker-cssmodules.scss > dist/react-datepicker-cssmodules.min.css",
     "css:dev": "node-sass --output-style expanded src/stylesheets/datepicker.scss > dist/react-datepicker.css",
